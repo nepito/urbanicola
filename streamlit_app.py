@@ -1,6 +1,7 @@
-import streamlit as st
 import requests
 import json
+import pandas as pd
+import streamlit as st
 
 
 conn = requests.get("http://104.248.109.197:6868/v1/gastos")
