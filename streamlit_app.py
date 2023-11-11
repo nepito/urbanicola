@@ -5,9 +5,10 @@ import streamlit as st
 
 url = "http://104.248.109.197:6868/v1/item"
 user = {"name": ["Primo Rivas"], "age": [38], "client": [False]}
+headers = {'Content-type': 'application/json'}
 
 if st.button("Make post request"):
-    st.write(requests.post(url, user))
+    st.write(requests.post(url, json=user, headers=headers))
 
 conn = requests.get("http://104.248.109.197:6868/v1/gastos")
 gastos = pd.DataFrame.from_dict(json.loads(conn.json()))
