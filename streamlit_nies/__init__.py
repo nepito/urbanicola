@@ -1,6 +1,4 @@
-"""A template Streamlit app"""
+"""A Streamlit app for Urbanicola"""
 
-__version__ = "0.1.1"
+__version__ = "0.1.0"
 from .transformations import add_offset  # noqa
-from .polar_bar_plotly import *  # noqa
-from .heat_map_consistent_altair import *  # noqa
