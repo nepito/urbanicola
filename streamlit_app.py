@@ -61,7 +61,7 @@ def make_user(nombre, edad, es_cliente):
 
 headers = {"Content-type": "application/json"}
 
-if st.button("Make post request"):
+if st.button("Registrar gasto"):
 #    st.write(requests.post(url, json=make_user(name, age, client), headers=headers))
     st.write(date, mount, type, concept, subtype, area, how_many, provider, factura, type_pay, bank_count, description)
 
