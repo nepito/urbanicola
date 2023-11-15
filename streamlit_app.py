@@ -5,25 +5,33 @@ import streamlit as st
 import datetime
 
 
-name = st.text_input(
-    "Por favor agrega un nombre",
-    placeholder="Nombre",
-)
-age = st.number_input("Agrega una edad por favor", min_value=18, max_value=65)
-client = st.checkbox("Cliente")
 url = "http://104.248.109.197:6868/v1/item"
 
-date = st.date_input("Fecha", value=None)
-mount = st.number_input("Agrega el monto", min_value=0.1)
-type = st.selectbox('Tipo de gasto',("Fijo", "Variable"))
-concept = st.selectbox('Concepto',("Administrativos", "Costos", "Otros"))
-subtype = st.selectbox("Subtipo", ("Gasolina hilux", "comida", "Personal", "riego"))
-area = st.selectbox("Área", ("Obra", "Proyectos", "Dirección", "Inversiones"))
-how_many = st.number_input("Cantidad", min_value=0.1)
-provider = st.selectbox("Proveedor", ("Arco", "Oxxo", "Toyota", "Otros"))
-factura = st.checkbox("Factura")
-type_pay = st.selectbox("Forma de pago", ("Transferencia", "Efectivo"))
-bank_count = st.selectbox("Cuenta", ("Santander", "Efectivo"))
+col1, col2, col3 = st.columns(3)
+with col1:
+    date = st.date_input("Fecha", value=None)
+with col2:
+    mount = st.number_input("Agrega el monto", min_value=0.1)
+    how_many = st.number_input("Cantidad", min_value=0.1)
+with col3:
+    type = st.selectbox('Tipo de gasto',("Fijo", "Variable"))
+colA, colB, colC = st.columns(3)
+with colA:
+    concept = st.selectbox('Concepto',("Administrativos", "Costos", "Otros"))
+with colB:
+    subtype = st.selectbox("Subtipo", ("Gasolina hilux", "comida", "Personal", "riego"))
+with colC:
+    area = st.selectbox("Área", ("Obra", "Proyectos", "Dirección", "Inversiones"))
+colI, colII = st.columns(2)
+with colI:
+    provider = st.selectbox("Proveedor", ("Arco", "Oxxo", "Toyota", "Otros"))
+with colII:
+    factura = st.checkbox("Factura")
+cola, colb = st.columns(2)
+with cola:
+    type_pay = st.selectbox("Forma de pago", ("Transferencia", "Efectivo"))
+with colb:
+    bank_count = st.selectbox("Cuenta", ("Santander", "Efectivo"))
 description = st.text_input(
     "Por favor la descripción de gasto",
     placeholder="descripción",
