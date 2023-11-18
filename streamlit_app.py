@@ -58,7 +58,7 @@ def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor,
 headers = {"Content-type": "application/json"}
 
 if st.button("Registrar gasto"):
-    st.write(date, mount, type, concept, subtype, area, how_many, provider, factura, type_pay, bank_count, description)
+    st.write(str(date), mount, type, concept, subtype, area, how_many, provider, factura, type_pay, bank_count, description)
     st.write(
         requests.post(
             url,
