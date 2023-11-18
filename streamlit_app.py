@@ -29,7 +29,7 @@ with colII:
     factura = st.checkbox("Factura")
 cola, colb = st.columns(2)
 with cola:
-    type_pay = st.selectbox("Forma de pago", ("Transferencia", "Efectivo"))
+    payment_type = st.selectbox("Forma de pago", ("Transferencia", "Efectivo"))
 with colb:
     bank_count = st.selectbox("Cuenta", ("Santander", "Efectivo"))
 description = st.text_input(
@@ -49,7 +49,7 @@ def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor,
         "how_many": [cantidad],
         "provider": [proveedor],
         "factura": [factura],
-        "pay_type": [tipo_pago],
+        "payment_type": [tipo_pago],
         "bank_count": [cuenta],
         "descrption": [descripcion]
     }
@@ -58,11 +58,11 @@ def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor,
 headers = {"Content-type": "application/json"}
 
 if st.button("Registrar gasto"):
-    st.write(str(date), mount, type, concept, subtype, area, how_many, provider, factura, type_pay, bank_count, description)
+    st.write(str(date), mount, type, concept, subtype, area, how_many, provider, factura, payment_type, bank_count, description)
     st.write(
         requests.post(
             url,
-            json=make_spent(date, mount, type, concept, subtype, area, how_many, provider, factura, type_pay, bank_count, description),
+            json=make_spent(date, mount, type, concept, subtype, area, how_many, provider, factura, payment_type, bank_count, description),
             headers=headers)
             )
 
