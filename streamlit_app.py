@@ -50,8 +50,8 @@ def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor,
         "provider": [proveedor],
         "factura": [factura],
         "payment_type": [tipo_pago],
-#        "bank_count": [cuenta],
-#        "descrption": [descripcion]
+        "bank_count": [cuenta],
+        "description": [descripcion]
     }
 
 
