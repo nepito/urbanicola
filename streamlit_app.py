@@ -5,7 +5,7 @@ import streamlit as st
 import datetime
 
 
-url = "http://104.248.109.197:6868/v1/item"
+url = "http://104.248.109.197:6868/v1/spent"
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -62,12 +62,12 @@ def make_user(nombre, edad, es_cliente):
 headers = {"Content-type": "application/json"}
 
 if st.button("Registrar gasto"):
-#    st.write(requests.post(url, json=make_user(name, age, client), headers=headers))
-    st.write(date, mount, type, concept, subtype, area, how_many, provider, factura, type_pay, bank_count, description)
+    st.write(
+        requests.post(
+            url,
+            json=make_spent(date, mount, type, concept, subtype, area, how_many, provider, factura, type_pay, bank_count, description),
+            headers=headers)
+            )
 
-conn = requests.get("http://104.248.109.197:6868/v1/gastos")
-gastos = pd.DataFrame.from_dict(json.loads(conn.json()))
-
-st.write(gastos)
 
 st.markdown("Made with 💖 by [nies.futbol](https://nies.futbol)")
