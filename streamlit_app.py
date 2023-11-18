@@ -40,7 +40,7 @@ description = st.text_input(
 
 def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor, factura, tipo_pago, cuenta, descripcion):
     return {
-        "date": [fecha],
+        "date": [str(fecha)],
         "mount": [monto],
         "type": [tipo],
         "concept": [concepto],
@@ -53,10 +53,6 @@ def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor,
         "bank_count": [cuenta],
         "descrption": [descripcion]
     }
-
-
-def make_user(nombre, edad, es_cliente):
-    return {"name": [nombre], "age": [edad], "client": [es_cliente]}
 
 
 headers = {"Content-type": "application/json"}
