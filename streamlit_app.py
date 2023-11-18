@@ -41,17 +41,17 @@ description = st.text_input(
 def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor, factura, tipo_pago, cuenta, descripcion):
     return {
         #"date": [str(fecha)],
-        "mount": [monto],
-        "type": [tipo],
-        "concept": [concepto],
-        "subtype": [subtipo],
-        "area": [area],
-        "how_many": [cantidad],
-        "provider": [proveedor],
-        "factura": [factura],
-        "payment_type": [tipo_pago],
-        "bank_count": [cuenta],
-        "descrption": [descripcion]
+        "mount": [monto]
+#        "type": [tipo],
+#        "concept": [concepto],
+#        "subtype": [subtipo],
+#        "area": [area],
+#        "how_many": [cantidad],
+#        "provider": [proveedor],
+#        "factura": [factura],
+#        "payment_type": [tipo_pago],
+#        "bank_count": [cuenta],
+#        "descrption": [descripcion]
     }
 
 
