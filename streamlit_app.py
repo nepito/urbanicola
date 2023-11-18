@@ -40,7 +40,7 @@ description = st.text_input(
 
 def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor, factura, tipo_pago, cuenta, descripcion):
     return {
-        "date": [str(fecha)],
+        #"date": [str(fecha)],
         "mount": [monto],
         "type": [tipo],
         "concept": [concepto],
