@@ -1,8 +1,16 @@
 import requests
-import json
 import pandas as pd
 import streamlit as st
-import datetime
+from PIL import Image
+from pathlib import Path
+
+# --- PATH SETTINGS ---
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+profile_pic_path = current_dir / "assets" / "logo.jpg"
+profile_pic = Image.open(profile_pic_path)
+col1, col2 = st.columns(2, gap="small")
+with col1:
+    st.image(profile_pic, width=230)
 
 
 url = "http://104.248.109.197:6868/v1/spent"
