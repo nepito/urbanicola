@@ -13,7 +13,7 @@ with col1:
     st.image(profile_pic, width=230)
 
 
-url = "http://104.248.109.197:6868/v1/spent"
+url = "http://64.23.131.192:6868/v1/spent"
 
 col1, col2, col3 = st.columns(3)
 with col1:
