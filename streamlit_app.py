@@ -6,7 +6,7 @@ from pathlib import Path
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
-profile_pic_path = current_dir / "assets" / "Urbanicola.jpg"
+profile_pic_path = current_dir / "assets" / "Urbanicola.png"
 profile_pic = Image.open(profile_pic_path)
 col1, col2 = st.columns(2, gap="small")
 with col1:
