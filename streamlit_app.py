@@ -23,7 +23,7 @@ with col2:
 with col3:
     type = st.selectbox('Tipo de gasto',("Fijo", "Variable"))
 description = st.text_input(
-    "Por favor la descripción de gasto",
+    "Por favor agrega la descripción de gasto",
     placeholder="descripción",
 )
 colA, colB, colC = st.columns(3)
