@@ -8,13 +8,14 @@ from pathlib import Path
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 profile_pic_path = current_dir / "assets" / "urbanicola.png"
 profile_pic = Image.open(profile_pic_path)
+PAGE_TITLE = "Urbanícola"
+PAGE_ICON = ":shark:"
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
+
 col1, col2 = st.columns(2, gap="small")
 with col1:
     st.image(profile_pic, width=230)
 
-PAGE_TITLE = "Urbanícola"
-PAGE_ICON = ":shark:"
-st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
 
 url = "http://64.23.131.192:6868/v1/spent"
