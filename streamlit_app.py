@@ -20,9 +20,12 @@ with col1:
     date = st.date_input("Fecha", value=None)
 with col2:
     mount = st.number_input("Agrega el monto", min_value=0.1)
-    how_many = st.number_input("Cantidad", min_value=0.1)
 with col3:
     type = st.selectbox('Tipo de gasto',("Fijo", "Variable"))
+description = st.text_input(
+    "Por favor la descripción de gasto",
+    placeholder="descripción",
+)
 colA, colB, colC = st.columns(3)
 with colA:
     concept = st.selectbox('Concepto',("Administrativos", "Costos", "Otros"))
@@ -40,10 +43,7 @@ with cola:
     payment_type = st.selectbox("Forma de pago", ("Transferencia", "Efectivo"))
 with colb:
     bank_count = st.selectbox("Cuenta", ("Santander", "Efectivo"))
-description = st.text_input(
-    "Por favor la descripción de gasto",
-    placeholder="descripción",
-)
+
 
 
 def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor, factura, tipo_pago, cuenta, descripcion):
@@ -70,7 +70,7 @@ if st.button("Registrar gasto"):
     st.write(
         requests.post(
             url,
-            json=make_spent(date, mount, type, concept, subtype, area, how_many, provider, factura, payment_type, bank_count, description),
+            json=make_spent(date, mount, type, concept, subtype, area, 1, provider, factura, payment_type, bank_count, description),
             headers=headers)
             )
 
