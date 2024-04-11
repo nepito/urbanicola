@@ -12,7 +12,21 @@ PAGE_TITLE = "Urbanícola"
 PAGE_ICON = "🦈"
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
-def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor, factura, tipo_pago, cuenta, descripcion):
+
+def make_spent(
+    fecha,
+    monto,
+    tipo,
+    concepto,
+    subtipo,
+    area,
+    cantidad,
+    proveedor,
+    factura,
+    tipo_pago,
+    cuenta,
+    descripcion,
+):
     return {
         "date": [str(fecha)],
         "mount": [monto],
@@ -25,7 +39,77 @@ def make_spent(fecha, monto, tipo, concepto, subtipo, area, cantidad, proveedor,
         "factura": [factura],
         "payment_type": [tipo_pago],
         "bank_count": [cuenta],
-        "description": [descripcion]
+        "description": [descripcion],
+    }
+
+
+def make_selling(
+    concept,
+    sales_date,
+    expiration,
+    status,
+    sales_credit,
+    customer,
+    prod_serv,
+    amount,
+    paid,
+    unit_price,
+    bank_account,
+    way_pay,
+    sector,
+    invoice_folio,
+    date_issue,
+    final_price,
+    discount,
+    income,
+    product_cost,
+    delivery_type,
+    shipping_cost,
+    shipping_date,
+    place_delivery,
+    delivery_date,
+    billig,
+    profit,
+    margin_gain,
+    payment_status,
+    sales_number,
+    pending_amount,
+    registration_date,
+    check,
+):
+    return {
+        "concept": [],
+        "sales_date": [],
+        "expiration": [],
+        "status": [],
+        "sales_credit": [],
+        "customer": [],
+        "prod_serv": [],
+        "amount": [],
+        "paid": [],
+        "unit_price": [],
+        "bank_account": [],
+        "way_pay": [],
+        "sector": [],
+        "invoice_folio": [],
+        "date_issue": [],
+        "final_price": [],
+        "discount": [],
+        "income": [],
+        "product_cost": [],
+        "delivery_type": [],
+        "shipping_cost": [],
+        "shipping_date": [],
+        "place_delivery": [],
+        "delivery_date": [],
+        "billig": [],
+        "profit": [],
+        "margin_gain": [],
+        "payment_status": [],
+        "sales_number": [],
+        "pending_amount": [],
+        "registration_date": [],
+        "check": [],
     }
 
 
@@ -44,10 +128,10 @@ with gastos:
         mount = st.number_input("Agrega el monto", min_value=0.1)
         how_many = st.number_input("Cantidad", min_value=0.1)
     with col3:
-        type = st.selectbox('Tipo de gasto',("Fijo", "Variable"))
+        type = st.selectbox("Tipo de gasto", ("Fijo", "Variable"))
     colA, colB, colC = st.columns(3)
     with colA:
-        concept = st.selectbox('Concepto',("Administrativos", "Costos", "Otros"))
+        concept = st.selectbox("Concepto", ("Administrativos", "Costos", "Otros"))
     with colB:
         subtype = st.selectbox("Subtipo", ("Gasolina hilux", "comida", "Personal", "riego"))
     with colC:
@@ -67,15 +151,41 @@ with gastos:
         placeholder="descripción",
     )
 
-
     if st.button("Registrar gasto"):
-        st.write(str(date), mount, type, concept, subtype, area, how_many, provider, factura, payment_type, bank_count, description)
+        st.write(
+            str(date),
+            mount,
+            type,
+            concept,
+            subtype,
+            area,
+            how_many,
+            provider,
+            factura,
+            payment_type,
+            bank_count,
+            description,
+        )
         st.write(
             requests.post(
                 url,
-                json=make_spent(date, mount, type, concept, subtype, area, how_many, provider, factura, payment_type, bank_count, description),
-                headers=headers)
-                )
+                json=make_spent(
+                    date,
+                    mount,
+                    type,
+                    concept,
+                    subtype,
+                    area,
+                    how_many,
+                    provider,
+                    factura,
+                    payment_type,
+                    bank_count,
+                    description,
+                ),
+                headers=headers,
+            )
+        )
 
 
 # Ventas
@@ -83,7 +193,7 @@ with ventas:
     col1, _ = st.columns(2, gap="small")
     col1, col2, col3 = st.columns(3)
     with col1:
-        concept = st.selectbox('Concepto',("Venta", "Ingreso"))
+        concept = st.selectbox("Concepto", ("Venta", "Ingreso"))
     with col2:
         sales_date = st.date_input("Fecha de venta", value=None)
     with col3:
@@ -95,7 +205,7 @@ with ventas:
             placeholder="cliente",
         )
     with col2:
-        status = st.selectbox('Estatus',("Pagada", "Inversión", "Préstamo"))
+        status = st.selectbox("Estatus", ("Pagada", "Inversión", "Préstamo"))
     with col3:
         prod_serv = st.text_input(
             "Producto/servicio",
@@ -110,11 +220,11 @@ with ventas:
         unit_price = st.number_input("Precio unitario", min_value=0.1)
     col1, col2, col3 = st.columns(3)
     with col1:
-        bank_acount = st.selectbox('Cuenta',("Efectivo", "Bajío", "Santander"))
+        bank_acount = st.selectbox("Cuenta", ("Efectivo", "Bajío", "Santander"))
     with col2:
-        way_pay = st.selectbox('Cuenta',("Efectivo", "Transferencia"))
+        way_pay = st.selectbox("Cuenta", ("Efectivo", "Transferencia"))
     with col3:
-        sector = st.selectbox('Área',("Obra", "Mantenimiento", "Proyecto", "Inversión"))
+        sector = st.selectbox("Área", ("Obra", "Mantenimiento", "Proyecto", "Inversión"))
     col1, col2, col3 = st.columns(3)
     with col1:
         invoice_folio = st.text_input(
@@ -134,14 +244,14 @@ with ventas:
         product_cost = st.number_input("Costo Prod", min_value=0.1)
     col1, col2, col3 = st.columns(3)
     with col1:
-        delivery_type = st.selectbox('Tipo de entrega',("En persona", "Desde lejitos"))
+        delivery_type = st.selectbox("Tipo de entrega", ("En persona", "Desde lejitos"))
     with col2:
         shipping_cost = st.number_input("Costo de envío", min_value=0.1)
     with col3:
         shipping_date = st.date_input("Fecha de envío", value=None)
     col1, col2, col3 = st.columns(3)
     with col1:
-        place_delivery = st.selectbox('Lugar de entrega',("En persona", "Desde lejitos"))
+        place_delivery = st.selectbox("Lugar de entrega", ("En persona", "Desde lejitos"))
     with col2:
         delivery_date = st.date_input("Fecha de entrega", value=None)
     with col3:
@@ -152,7 +262,7 @@ with ventas:
     with col2:
         margin_gain = st.number_input("Margen", min_value=0.1)
     with col3:
-        payment_status = st.selectbox('Status pago',("Pagada", "Espera"))
+        payment_status = st.selectbox("Status pago", ("Pagada", "Espera"))
     col1, col2, col3 = st.columns(3)
     with col1:
         sales_number = st.number_input("Número de venta", min_value=0.1)
@@ -160,5 +270,41 @@ with ventas:
         pending_amount = st.number_input("Mont pendiente", min_value=0.1)
     with col3:
         registration_date = st.date_input("Fecha de registro", value=None)
+
+    if st.button("Registrar venta"):
+        st.write(
+            str(date),
+            mount,
+            type,
+            concept,
+            subtype,
+            area,
+            how_many,
+            provider,
+            factura,
+            payment_type,
+            bank_count,
+            description,
+        )
+        st.write(
+            requests.post(
+                url,
+                json=make_selling(
+                    date,
+                    mount,
+                    type,
+                    concept,
+                    subtype,
+                    area,
+                    how_many,
+                    provider,
+                    factura,
+                    payment_type,
+                    bank_count,
+                    description,
+                ),
+                headers=headers,
+            )
+        )
 
 st.markdown("Made with 💖 by [nies.futbol](https://nies.futbol)")
