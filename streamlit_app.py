@@ -276,6 +276,40 @@ with ventas:
 
     if st.button("Registrar venta"):
         st.write(
+                    concept,
+                    sales_date,
+                    expiration,
+                    status,
+                    sales_credit,
+                    customer,
+                    prod_serv,
+                    amount,
+                    paid,
+                    unit_price,
+                    bank_account,
+                    way_pay,
+                    sector,
+                    invoice_folio,
+                    date_issue,
+                    final_price,
+                    discount,
+                    income,
+                    product_cost,
+                    delivery_type,
+                    shipping_cost,
+                    shipping_date,
+                    place_delivery,
+                    delivery_date,
+                    billig,
+                    profit,
+                    margin_gain,
+                    payment_status,
+                    sales_number,
+                    pending_amount,
+                    registration_date,
+                    check,
+        )
+        st.write(
             requests.post(
                 url,
                 json=make_selling(
