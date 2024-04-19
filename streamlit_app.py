@@ -115,6 +115,7 @@ def make_selling(
 
 headers = {"Content-type": "application/json"}
 url = "http://64.23.131.192:6868/v1/spent"
+url_sales = "http://64.23.131.192:6868/v1/sales"
 gastos, ventas = st.tabs(["Gastos", "Ventas"])
 
 with gastos:
@@ -311,7 +312,7 @@ with ventas:
         )
         st.write(
             requests.post(
-                url,
+                url_sales,
                 json=make_selling(
                     concept,
                     sales_date,
