@@ -270,6 +270,9 @@ with ventas:
         pending_amount = st.number_input("Mont pendiente", min_value=0.1)
     with col3:
         registration_date = st.date_input("Fecha de registro", value=None)
+    sales_credit = True
+    bank_account = "Santander"
+    check = True
 
     if st.button("Registrar venta"):
         st.write(
