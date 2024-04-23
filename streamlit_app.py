@@ -42,9 +42,6 @@ def make_spent(
         "description": [descripcion],
     }
 
-def make_selling_from_testing_data():
-    sales = pd.read_csv("/workdir/tests/data/sales.csv")
-    return sales.to_dict('records')[2]
 
 def make_selling(
     concept,
@@ -82,37 +79,37 @@ def make_selling(
 ):
     return {
         "concept": [concept],
-        "sales_date": [str(sales_date)],
-        "expiration": [str(expiration)],
-        "status": [status],
-        "sales_credit": [sales_credit],
-        "customer": [customer],
-        "prod_serv": [prod_serv],
-        "amount": [amount],
-        "paid": [paid],
-        "unit_price": [unit_price],
-        "bank_account": [bank_account],
-        "way_pay": [way_pay],
-        "sector": [sector],
-        "invoice_folio": [invoice_folio],
-        "date_issue": [str(date_issue)],
-        "final_price": [final_price],
-        "discount": [discount],
-        "income": [income],
-        "product_cost": [product_cost],
-        "delivery_type": [delivery_type],
-        "shipping_cost": [shipping_cost],
-        "shipping_date": [str(shipping_date)],
-        "place_delivery": [place_delivery],
-        "delivery_date": [str(delivery_date)],
-        "billig": [billig],
-        "profit": [profit],
-        "margin_gain": [margin_gain],
-        "payment_status": [payment_status],
-        "sales_number": [sales_number],
-        "pending_amount": [pending_amount],
-        "registration_date": [str(registration_date)],
-        "check": [check],
+        "sales_date": ["2024-03-18"],
+        "expiration": ["2024-03-18"],
+        "status": ["string"],
+        "sales_credit": [True],
+        "customer": ["nies fut_sal"],
+        "prod_serv": ["string"],
+        "amount": [6],
+        "paid": [6],
+        "unit_price": [6],
+        "bank_account": ["string"],
+        "way_pay": ["string"],
+        "sector": ["string"],
+        "invoice_folio": [6],
+        "date_issue": ["2024-03-18"],
+        "final_price": [6],
+        "discount": [6],
+        "income": [6],
+        "product_cost": [6],
+        "delivery_type": ["string"],
+        "shipping_cost": [6],
+        "shipping_date": ["2024-03-18"],
+        "place_delivery": ["string"],
+        "delivery_date": ["2024-03-18"],
+        "billig": [True],
+        "profit": [6],
+        "margin_gain": [6],
+        "payment_status": ["string"],
+        "sales_number": [6],
+        "pending_amount": [6],
+        "registration_date": ["2024-03-18"],
+        "check": [True],
     }
 
 
@@ -350,14 +347,6 @@ with ventas:
                     registration_date,
                     check,
                 ),
-                headers=headers,
-            )
-        )
-    if st.button("Registrar venta from testing data"):
-        st.write(
-            requests.post(
-                url_sales,
-                json=make_selling_from_testing_data(),
                 headers=headers,
             )
         )
