@@ -42,6 +42,9 @@ def make_spent(
         "description": [descripcion],
     }
 
+def make_selling_from_testing_data():
+    sales = pd.read_csv("/workdir/tests/data/sales.csv")
+    return sales.to_dict('records')[2]
 
 def make_selling(
     concept,
@@ -347,6 +350,14 @@ with ventas:
                     registration_date,
                     check,
                 ),
+                headers=headers,
+            )
+        )
+    if st.button("Registrar venta from testing data"):
+        st.write(
+            requests.post(
+                url_sales,
+                json=make_selling_from_testing_data(),
                 headers=headers,
             )
         )
