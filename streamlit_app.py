@@ -243,34 +243,6 @@ with ventas:
         income = st.number_input("Ingreso", min_value=0.1)
     with col3:
         product_cost = st.number_input("Costo Prod", min_value=0.1)
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        delivery_type = st.selectbox("Tipo de entrega", ("En persona", "Desde lejitos"))
-    with col2:
-        shipping_cost = st.number_input("Costo de envío", min_value=0.1)
-    with col3:
-        shipping_date = st.date_input("Fecha de envío", value=None)
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        place_delivery = st.selectbox("Lugar de entrega", ("En persona", "Desde lejitos"))
-    with col2:
-        delivery_date = st.date_input("Fecha de entrega", value=None)
-    with col3:
-        billig = st.checkbox("Facturación")
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        profit = st.number_input("Ganancia", min_value=0.1)
-    with col2:
-        margin_gain = st.number_input("Margen", min_value=0.1)
-    with col3:
-        payment_status = st.selectbox("Status pago", ("Pagada", "Espera"))
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        sales_number = st.number_input("Número de venta", min_value=0.1)
-    with col2:
-        pending_amount = st.number_input("Mont pendiente", min_value=0.1)
-    with col3:
-        registration_date = st.date_input("Fecha de registro", value=None)
     sales_credit = True
     bank_account = "Santander"
     check = True
@@ -296,19 +268,6 @@ with ventas:
             discount,
             income,
             product_cost,
-            delivery_type,
-            shipping_cost,
-            shipping_date,
-            place_delivery,
-            delivery_date,
-            billig,
-            profit,
-            margin_gain,
-            payment_status,
-            sales_number,
-            pending_amount,
-            registration_date,
-            check,
         )
         st.write(
             requests.post(
@@ -333,19 +292,6 @@ with ventas:
                     discount,
                     income,
                     product_cost,
-                    delivery_type,
-                    shipping_cost,
-                    shipping_date,
-                    place_delivery,
-                    delivery_date,
-                    billig,
-                    profit,
-                    margin_gain,
-                    payment_status,
-                    sales_number,
-                    pending_amount,
-                    registration_date,
-                    check,
                 ),
                 headers=headers,
             )
