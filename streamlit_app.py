@@ -97,19 +97,6 @@ def make_selling(
         "discount": [discount],
         "income": [income],
         "product_cost": [product_cost],
-        "delivery_type": [delivery_type],
-        "shipping_cost": [shipping_cost],
-        "shipping_date": [str(shipping_date)],
-        "place_delivery": [place_delivery],
-        "delivery_date": [str(delivery_date)],
-        "billig": [billig],
-        "profit": [profit],
-        "margin_gain": [margin_gain],
-        "payment_status": [payment_status],
-        "sales_number": [sales_number],
-        "pending_amount": [pending_amount],
-        "registration_date": [str(registration_date)],
-        "check": [check],
     }
 
 
