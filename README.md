@@ -7,8 +7,10 @@ src="https://raw.githubusercontent.com/niesfutbol/streamlit_nies/develop/static/
 ## Step to use
 ### Local app
 ``` sh
-docker-compose up app
+docker-compose up --detach app
 ```
+
+Lo podrás usar en http://localhost:8501/
 ### Develop Enviroment
 ``` sh
 docker-compose run nies
